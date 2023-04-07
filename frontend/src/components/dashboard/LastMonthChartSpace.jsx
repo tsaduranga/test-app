@@ -5,15 +5,12 @@ import VerticalBarChart from '../charts/VerticalBarChart'
 const LastMonthChartSpace = () => {
   return (
     <Paper
-    sx={{
-      m: 1,
-    //   display: 'flex',
-    //   flexDirection: 'column',
-    //   height: '300px',
-    }}
-  >
-    <VerticalBarChart />
-  </Paper>
+      sx={{
+        m: 1,
+      }}
+    >
+      <VerticalBarChart />
+    </Paper>
   )
 }
 

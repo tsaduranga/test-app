@@ -1,9 +1,9 @@
 import React from 'react'
 
-const FormError = ({error}) => {
+const FormError = ({ error }) => {
   return (
     <div className="alert" style={{ color: 'red' }}>
-              {error}
+      {error}
     </div>
   )
 }

@@ -17,7 +17,7 @@ import { mainListItems } from '../components/menu/mainListItems.jsx';
 import { Navigate, Outlet } from 'react-router-dom';
 import { Button, TextField } from '@mui/material';
 import { useStateContext } from '../contexts/ContextProvider.js';
-import {  axiosClient} from '../axios-client.js';
+import { axiosClient } from '../axios-client.js';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux'
 import { getStockDetails, getStockDetailsByDate } from '../store/actions/stockDetailsActions.js';
@@ -74,7 +74,7 @@ const mdTheme = createTheme();
 
 function DashboardContent() {
   const dispatch = useDispatch()
-  const { token, setUser, setToken  } = useStateContext();
+  const { token, setUser, setToken } = useStateContext();
   const [open, setOpen] = useState(true);
   const apikey = process.env.POLYGON_API_KEY
 
@@ -83,11 +83,11 @@ function DashboardContent() {
 
   useEffect(() => {
     axiosClient.get('/users/profile')
-        .then(({ data }) => {
-          setUser(data)
-        })
+      .then(({ data }) => {
+        setUser(data)
+      })
 
-        dispatch(getStockDetails(apikey))
+    dispatch(getStockDetails(apikey))
   }, [])
 
 
@@ -105,7 +105,7 @@ function DashboardContent() {
   }
 
   const serchOnChangeHandler = (date) => {
-    dispatch(getStockDetailsByDate(apikey,date))
+    dispatch(getStockDetailsByDate(apikey, date))
   }
 
 
@@ -116,7 +116,7 @@ function DashboardContent() {
         <AppBar position="absolute" open={open}>
           <Toolbar
             sx={{
-              pr: '24px', 
+              pr: '24px',
             }}
           >
             <IconButton
@@ -131,9 +131,9 @@ function DashboardContent() {
             >
               <MenuIcon />
             </IconButton>
-           
-            <Grid  sx={{ flexGrow: 1 }} >
-            <TextField disableFuture={true} id="standard-basic" variant="outlined" type='date' style={{ backgroundColor:'white'}} defaultValue={currentDate} onChange={(e) => serchOnChangeHandler(e.target.value)} maxValue={currentDate} />
+
+            <Grid sx={{ flexGrow: 1 }} >
+              <TextField disableFuture={true} id="standard-basic" variant="outlined" type='date' style={{ backgroundColor: 'white' }} defaultValue={currentDate} onChange={(e) => serchOnChangeHandler(e.target.value)} maxValue={currentDate} />
             </Grid>
             {/* </Typography> */}
             <IconButton color="inherit">

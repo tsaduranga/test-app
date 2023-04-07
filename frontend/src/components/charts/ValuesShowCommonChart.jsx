@@ -7,37 +7,37 @@ import { HIGH, LOW, OPEN } from '../../constant'
 import { useSelector } from 'react-redux'
 import Loading from '../Loading'
 
-const ValuesShowCommonChart = ({type}) => {
+const ValuesShowCommonChart = ({ type }) => {
 
   const stock = useSelector((state) => state.stock)
   const { loading, error, data } = stock
 
   return (
     <Paper
-    sx={{
-      m: 1,
-      p : 2,
-      display: 'flex',
-      flexDirection: 'column',
-      height: 240,
-    }}
-  >
-    <Grid container>
+      sx={{
+        m: 1,
+        p: 2,
+        display: 'flex',
+        flexDirection: 'column',
+        height: 240,
+      }}
+    >
+      <Grid container>
         <Grid md={6}>
-            <Typography variant="p" gutterBottom>{type}</Typography>
-            <Typography  variant="h5" gutterBottom style={{ fontWeight : 'bold'}}>
-              {
-                loading ? <Loading /> : ((type === HIGH) ? data?.high : (type === LOW) ? data?.low : (type === OPEN) ? data?.open : '')
-              }
-              
-            </Typography>
+          <Typography variant="p" gutterBottom>{type}</Typography>
+          <Typography variant="h5" gutterBottom style={{ fontWeight: 'bold' }}>
+            {
+              loading ? <Loading /> : ((type === HIGH) ? data?.high : (type === LOW) ? data?.low : (type === OPEN) ? data?.open : '')
+            }
+
+          </Typography>
 
         </Grid>
         <Grid md={6}>
-            <img src={ (type === HIGH) ? highImg : (type === LOW) ? lowImg : (type === OPEN) ? openImg : '' } width="150" height="220" />
+          <img src={(type === HIGH) ? highImg : (type === LOW) ? lowImg : (type === OPEN) ? openImg : ''} width="150" height="220" />
         </Grid>
-    </Grid>
-  </Paper>
+      </Grid>
+    </Paper>
   )
 }
 
