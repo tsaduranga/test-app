@@ -13,7 +13,7 @@ import { Grid, Paper } from '@mui/material';
 
 ChartJS.register(
   CategoryScale,
-  LinearScale,
+  // LinearScale,
   BarElement,
   Title,
   Tooltip,
